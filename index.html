@@ -1,1 +1,59 @@
-Hi there
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vadzim and Lucy</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body class="dog-love">
+    
+    <div class="header">
+        <div class="happy-days">
+            <h1 id="mainText"> Вместе с 9 марта 2015 года. </h1>
+            <h1 id="secondaryText"></h1>
+             
+            
+            <p class="signature">--С любовью <br /> Вадим.</p>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    var getDayWord = function (dayCount){
+        var lasNumber = dayCount % 10;
+        if (lasNumber > 1 && lasNumber < 5) {
+            return "дня";
+        }
+        else if (lasNumber == 1) {
+            return "день";
+        }
+        else {
+            return "дней";
+        }
+    };
+
+    var getHappinessWord = function (daysCount){
+        var latsNumber = daysCount % 10;
+        if (latsNumber == 1) {
+            return "Самый счастливый";
+        }
+        else {
+            return "Самые счастливые";
+        }
+    };
+
+    var startDate = new Date(2015, 4, 9);
+    var currentDate = new Date();
+    var timeDiff = Math.abs(currentDate.getTime() - startDate.getTime());
+    var dayCount = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+
+    var text = dayCount + " " + getDayWord(dayCount) + " вместе.";
+    document.getElementById("mainText").innerHTML = text; 
+
+    var secondaryText = getHappinessWord(dayCount) + " " + dayCount + " " + getDayWord(dayCount) + " моей жизни!"
+    document.getElementById("secondaryText").innerHTML = secondaryText; 
+</script>
+
+</html>
